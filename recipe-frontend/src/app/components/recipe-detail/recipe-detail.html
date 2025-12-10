@@ -1,0 +1,13 @@
+<!-- src/app/components/recipe-detail/recipe-detail.component.html -->
+<h2>{{ recipe.title }}</h2>
+<p>{{ recipe.description }}</p>
+
+<label>Nombre de portions :</label>
+<input type="number" [value]="recipe.servings" (input)="adjustServings($any($event.target).value)">
+
+<h3>Ingrédients :</h3>
+<ul>
+  <li *ngFor="let ing of recipe.ingredients">
+    {{ ing.quantity }} {{ ing.unit }} {{ ing.name }}
+  </li>
+</ul>

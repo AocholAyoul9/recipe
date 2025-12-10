@@ -1,0 +1,6 @@
+<h1>home page</h1>
+<div *ngFor="let recipe of recipes">
+  <a [routerLink]="['/recipe', recipe.id]">{{ recipe.title }}</a>
+</div>
+<button (click)="prevPage()">Précédent</button>
+<button (click)="nextPage()">Suivant</button>

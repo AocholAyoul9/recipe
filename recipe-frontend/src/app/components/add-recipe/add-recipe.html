@@ -1,0 +1,15 @@
+<form [formGroup]="recipeForm" (ngSubmit)="submit()">
+  <input formControlName="title" placeholder="Titre">
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <input type="number" formControlName="servings" placeholder="Portions">
+
+  <div formArrayName="ingredients">
+    <div *ngFor="let ing of ingredients.controls; let i=index" [formGroupName]="i">
+      <input formControlName="name" placeholder="Nom">
+      <input type="number" formControlName="quantity" placeholder="Quantité">
+      <input formControlName="unit" placeholder="Unité">
+    </div>
+  </div>
+  <button type="button" (click)="addIngredient()">Ajouter un ingrédient</button>
+  <button type="submit">Créer la recette</button>
+</form>
